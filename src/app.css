@@ -1,0 +1,19 @@
+.header {
+  background-color: #404754;
+  padding: 10px 15px;
+  font-size: 1rem;
+}
+
+.app-container {
+  background-color: #282c34;
+  height: 100vh;
+  color: white;
+  display: grid;
+  grid-template-rows: max-content 1fr;
+}
+
+.content {
+  padding: 15px;
+  display: grid;
+  grid-template-rows: min-content min-content 1fr;
+}
