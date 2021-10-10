@@ -17,7 +17,7 @@ const SelectImageFromDevice = ({ uploadImage = () => void 0 }) => {
     return  (<>
                 <Form.Group>
                     <Form.Label>Upload photo from your device (only png / jpeg / gif)</Form.Label>
-                    <Form.Control type="file" accept="image/*" name="image" id="file" onChange={handleChange} />
+                    <Form.Control type="file" accept="image/*" name="image" id="fileUpload" onChange={handleChange} />
                 </Form.Group>
                { err && 
                <ToastContainer className="p-3" position={'top-end'}>

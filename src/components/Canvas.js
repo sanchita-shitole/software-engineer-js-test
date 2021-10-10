@@ -94,7 +94,10 @@ const Canvas = ({ imgSrc, storageUpdated }) => {
     }
 
     return  <div className="grid-container">
-                <canvas className='canvas' ref={canvasRef}></canvas>
+                <div>
+                    {typeof imgSrc?.file === 'string' ? imgSrc.fileObj?.name : imgSrc?.file?.name || 'Please select photo from above two options'}
+                    <canvas className='canvas' ref={canvasRef} id="canvas"></canvas>
+                </div>
                 <Controls onValueChange={onValueChange} w={dim.width} h={dim.height} x={cordinates.x} y={cordinates.y}/>
             </div>
 }

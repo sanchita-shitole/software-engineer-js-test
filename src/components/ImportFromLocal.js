@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import { getLocalStorage } from '../common/utils';
 
 const ImportFromLocal = ({hash, reDraw}) => {
@@ -17,7 +17,11 @@ const ImportFromLocal = ({hash, reDraw}) => {
         if (value) {
             ;(async() => {
                 const img = await getLocalStorage(value)
-                reDraw(img)
+                if (!img) {
+                    setImgList(null)
+                } else {
+                    reDraw(img)
+                }
             })()
         } else {
             /* clear the canvas */
