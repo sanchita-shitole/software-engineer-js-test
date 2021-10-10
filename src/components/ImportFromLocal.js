@@ -7,17 +7,20 @@ const ImportFromLocal = ({hash, reDraw}) => {
     const [selectedFile, setSelectedFile] = useState('')
 
     useEffect(()=>{
+        /* once storage is updated then create select options */
         const images = getLocalStorage()
         setImgList(images && Object.keys(images))
     },[hash])
 
     const onFileChange = (event) => {
+        /* load image file from local storage */
         const value = event.target.value
         setSelectedFile(value)
         if (value) {
             ;(async() => {
                 const img = await getLocalStorage(value)
                 if (!img) {
+                    /* if no file is found, that means local storage is cleared somehow, reset list */
                     setImgList(null)
                 } else {
                     reDraw(img)
